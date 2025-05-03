@@ -19,9 +19,11 @@ public class StaffController {
 	private StaffDAO staffDao; 
 	
 	@RequestMapping(path= {"/", "home.do"})
-	public String index(Model model) {
-		model.addAttribute("staff", staffDao.findAll()); 
-		return "home"; 
+	public String index(@RequestParam(value = "showStaff", required = false) Boolean showStaff, Model model) {
+	    List<Staff> staffList = staffDao.findAll();
+	    model.addAttribute("staff", staffList);
+	    model.addAttribute("showStaff", showStaff);
+	    return "home";
 	}
 	
 	@RequestMapping(path = "staff.do", method = RequestMethod.GET)
@@ -47,11 +49,12 @@ public class StaffController {
 	  return "home";
 	}
 	
-	public String filmSort(Model model,  @RequestParam("sort") String sort){
-		List<Staff> staff = staffDao.sortByName(sort);
-		model.addAttribute("films", staff);
-		
-	 return "home"; 
+	@RequestMapping(path = "sortStaff.do", method = RequestMethod.GET)
+	public String staffSort(Model model, @RequestParam("sort") Boolean showStaff, String sort) {
+	    List<Staff> staff = staffDao.sortByName(sort);
+	    model.addAttribute("staff", staff);
+	    model.addAttribute("showStaff", showStaff);
+	    return "home";
 	}
 	
 

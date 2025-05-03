@@ -16,24 +16,43 @@
 <div class=container>
 <br>
 
-<a href="home.do" class="glow-btn no-underline">
-  Home
-</a>
-
-
-  <h2><strong style="color:MediumSeaGreen;">Name:</strong> ${staff.firstName } ${staff.firstName}</h2>
-  <br>
-  <p><strong style="color:MediumSeaGreen;">Title:</strong> ${staff.jobTitle}</p>
-  <p><strong style="color:MediumSeaGreen;">DOB:</strong> ${staff.birthDate}</p>
-  <p><strong style="color:MediumSeaGreen;">Email:</strong> ${staff.email}</p>
-  <p><strong style="color:MediumSeaGreen;">Phone:</strong> ${staff.phone}</p>
-  <p><strong style="color:MediumSeaGreen;">Employment Type:</strong> ${staff.employmentType}</p>
-  <p><strong style="color:MediumSeaGreen;">NMLS:</strong> ${staff.nmls}</p>
-  <p><strong style="color:MediumSeaGreen;">Name:</strong> ${staff.startDate}</p>
-  <p><strong style="color:MediumSeaGreen;">Name:</strong> ${staff.endDate}</p>
-
-
-
+<table class="table table-borderless outer-table">
+  <tr>
+    	<td colspan="2" class="text-center">
+    	<h1>Mountain State Financial Group</h1>
+     	<h4>Staff Directory</h4>
+    	</td>
+  </tr>
+  <tr>
+  		<td></h1><strong style="color:MediumSeaGreen;">Name:</strong></td><td>${staff.firstName} ${staff.lastName}</td></tr>
+  <tr>
+  		<td><strong style="color:MediumSeaGreen;">Title:</strong></td><td>${staff.jobTitle}</td>
+  </tr>
+  <tr>
+  		<td><strong style="color:MediumSeaGreen;">DOB:</strong></td><td>${staff.birthDate}</td>
+  </tr>
+  <tr>
+  		<td><strong style="color:MediumSeaGreen;">Email:</strong></td><td>${staff.email}</td>
+  </tr>
+  <tr>
+  		<td><strong style="color:MediumSeaGreen;">Phone:</strong></td><td>${staff.phone}</td>
+  </tr>
+  <tr>
+  		<td><strong style="color:MediumSeaGreen;">Employment Type:</strong></td><td>${staff.employmentType}</td>
+  </tr>
+  <tr>
+  		<td><strong style="color:MediumSeaGreen;">NMLS:</strong></td><td>${staff.nmls}</td>
+  </tr>
+  <tr>
+  		<td><strong style="color:MediumSeaGreen;">Start Date:</strong></td><td>${staff.startDate}</td>
+  </tr>
+  <tr>
+  		<td><strong style="color:MediumSeaGreen;">End Date:</strong></td><td>${staff.endDate}</td>
+  </tr>
+</table> 
+<div class="centered-form">
+      <a href="home.do" class="glow-btn no-underline">Home</a>
+</div>
   <br>
 </div>
 </body>

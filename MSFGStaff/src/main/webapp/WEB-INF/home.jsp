@@ -15,51 +15,51 @@
 </head>
 <body>
 <div class=container>
-
-	<form action="staff.do" method="GET">
-  <label for="staffId">Staff ID:</label>
-  <input 
-    type="number"
-    class="form-control"
-    id="staffId"
-    name="staffId"
-    required
-    min="1"
-    oninvalid="this.setCustomValidity('Please enter a staff ID greater than 0')"
-    oninput="this.setCustomValidity('')"
-  />
-  <input type="submit" class="btn btn-primary" value="Find Staff" />
-</form>
-
-	<form action="staff.do" method="GET">
- 		Sort by Rating:
- 		<input type="submit" class="btn btn-primary"  value="Sort" />
-	</form>
-
 <br>
 
-<table class="table table-striped table-hover">
-  <thead class="table-dark">
-    <tr>
-      <th class="underline" style="background-color:DarkGreen;">Title</th>
-      <th style="background-color:DarkGreen;">ID</th>
-      <th style="background-color:DarkGreen;">Rating</th>
-    </tr>
-  </thead>
-  <tbody>
-    <c:forEach var="staff" items="${staff}">
+<div class="centered-form">
+  <form action="staff.do" method="GET" class="centered-form">
+    <label for="staffId">Staff ID:</label>
+    <input type="text" name="staffId" id="staffId" class="form-control" required />
+    <input type="submit" class="glow-btn" value="Get Staff by ID" />
+  </form>
+</div>
+	
+<br>
+<div class="centered-form">
+ <form action="home.do" method="GET">
+  <input type="hidden" name="showStaff" value="${!showStaff}" />
+  <input type="submit" class="glow-btn" value="${showStaff ? 'Hide Staff' : 'Show Staff'}" />
+</form>
+</div>
+<br>
+<c:if test="${showStaff}">
+  <table class="table table-striped table-hover outer-table">
+    <thead class="table-dark">
       <tr>
-        <td>
-          <a class="no-underline" href="staff.do?staffId=${staff.id}">
-            ${staff.firstName}
-          </a>
-        </td>
-        <td>${staff.id}</td>
-        <td>${staff.firstName}</td>
+        <th style="background-color:DarkGreen;">
+  		<a href="home.do?sort=name&showStaff=true" class="underline text-white">
+   		 Name</a></th>
+        <th style="background-color:DarkGreen;">Title</th>
+        <th style="background-color:DarkGreen;">ID</th>
       </tr>
-    </c:forEach>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <c:forEach var="staff" items="${staff}">
+        <tr>
+          <td>
+            <a class="no-underline" href="staff.do?staffId=${staff.id}" style="color:MediumSeaGreen">
+              ${staff.firstName} ${staff.lastName}
+            </a>
+          </td>
+          <td>${staff.jobTitle}</td>
+          <td>${staff.id}</td>
+        </tr>
+      </c:forEach>
+    </tbody>
+  </table>
+</c:if>
+
  </div>
 </body>
 </html>
