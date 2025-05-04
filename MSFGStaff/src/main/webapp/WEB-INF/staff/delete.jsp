@@ -25,6 +25,9 @@
     <form action="deletestaff" method="POST">
       <input type="hidden" name="id" value="${staff.id}" />
 
+<div class="alert alert-warning" role="alert">
+  ⚠️ This is a warning — proceed with caution!
+</div>
       <h1><strong>ARE YOU SURE YOU WANT TO DELETE THIS STAFF MEMBER?</strong></h1>
       <h3><strong>This operation cannot be undone.</strong></h3>
 

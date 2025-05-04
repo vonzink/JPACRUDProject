@@ -27,7 +27,7 @@
         <tr>
           <td colspan="2" class="text-center">
             <h1>Mountain State Financial Group</h1>
-            <h4>Edit Staff</h4>
+            <h4>Add Staff</h4>
           </td>
         </tr>
 

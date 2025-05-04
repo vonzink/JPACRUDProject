@@ -198,19 +198,31 @@ Entities are stored and tested in the JPAMSFG.
 DAO, Controller and webfiles are in the MSFGStaff project. 
 Using the DalImlp for basic CRUD SQL commands and the condroller for functionality. 
 
-<img src="images/home.jpg" alt="home" width="100"/>
-<img src="images/staff.jpg" alt="staff" width="100"/>
-<img src="images/staffform.jpg" alt="staffform" width="100"/>
-<img src="images/delete.jpg" alt="delete" width="100"/>
+<img src="images/home.jpg" alt="home" width="200"/>
+<img src="images/staff.jpg" alt="staff" width="200"/>
+<img src="images/staffform.jpg" alt="staffform" width="200"/>
+<img src="images/delete.jpg" alt="delete" width="200"/>
 
-### 4. Implement the Backbone
+### 3. Functionality
 
+	- hide/show button for table for Staff
+	- Names are link to Staff Directory
+	- Sort by Name, Title, and Id
+	- Add link at bottom of table adds new row
+	- submit new button on staff update row on id
+	- edit page show ID that cooesponds to staff page
+	- delete button goes to delete page which displays name
+	- delete button removes row
 
+<img src="images/item1.jpg" alt="item1" width="200"/>
+<img src="images/item2.jpg" alt="item2" width="200"/>
+<img src="images/item3.jpg" alt="item3" width="200"/>
 
+### 4. Testing & Debugging
 
+Did most of the testing through the localHost
+Tested the entity int the JPA
 
-
-### 8. Testing & Debugging
 
 ### Leasons Learned
 - setup it complex and must be done with accuracy
@@ -222,6 +234,71 @@ Using the DalImlp for basic CRUD SQL commands and the condroller for functionali
 - if you add a Boolean parameter is will default required to true and will through an exception unless you force it to false. 
 - important syntax for redictection. return "redirect:/staff.do?staffId=" + staff.getId();
 
-
-
 ### Notes
+
+
+ - TODO: implement to AWS EC2
+
+
+Userful Code in JSP
+```
+//SHOWS editstaff
+	@RequestMapping(path = "editstaff.do", method = RequestMethod.GET)
+	public String showEditStaff(@RequestParam("id") int id, Model model) {
+		Staff staff = staffDao.staffId(id);
+		model.addAttribute("staff", staff);
+		return "staff/editstaff";
+    }//EDITS STAFF
+	@RequestMapping(path = "staff/update", method = RequestMethod.POST)
+	public String updateStaff(Staff staff) {
+		staffDao.update(staff);
+		return "redirect:/staff.do?staffId=" + staff.getId();
+	} //SHOWS Staffform
+	@RequestMapping(path = "staffform", method = RequestMethod.GET)
+	public String showStaffForm(Model model) {
+	    model.addAttribute("staff", new Staff());
+	    return "staff/staffform";
+	}//CREATES STAFF
+	@RequestMapping(path = "staffcreate", method = RequestMethod.POST)
+	public String newStaff(Staff staff, Model model) {
+	    staffDao.create(staff);
+	    return "redirect:staff.do?staffId=" + staff.getId();
+	}
+```
+Application.properities
+```
+spring.application.name=MSFGStaff
+
+#### PORT CONFIG ####
+##### Alternate Tomcat port
+server.port=8082
+
+
+#### JSP VIEW RESOLVER ####
+##### Include to use a ViewResolver to shorten the names of your views
+spring.mvc.view.prefix: /WEB-INF/
+spring.mvc.view.suffix: .jsp
+
+
+#### MYSQL DATASOURCE ####
+##### Configure to match your Database
+spring.datasource.url=jdbc:mysql://localhost:3306/msfgstaffdb
+spring.datasource.username=*******
+spring.datasource.password=*******
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+
+#### LOGGING ####
+##### Set to WARN for fewer log messages
+logging.level.root=WARN
+logging.level.org.springframework.web=DEBUG
+logging.level.org.hibernate.SQL=WARN
+logging.level.org.hibernate.type=WARN
+spring.jpa.show-sql=true
+
+
+#### TOMCAT ####
+spring.datasource.tomcat.max-active=10
+spring.datasource.dbcp2.max-idle=8
+spring.datasource.dbcp2.min-idle=8`
+

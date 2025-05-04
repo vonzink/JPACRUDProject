@@ -72,7 +72,7 @@ public class StaffController {
     public String staffSort(Model model, @RequestParam("sort") String sort) {
         List<Staff> staff = staffDao.sortByName(sort);
         model.addAttribute("staff", staff);
-        model.addAttribute("showStaff", true); // So table shows
+        model.addAttribute("showStaff", true); 
         return "home";
     }
     // SORT ID
@@ -92,23 +92,20 @@ public class StaffController {
         return "home";
     }
 	
+    //DELETE PAGE
     @RequestMapping(path = "delete", method = RequestMethod.GET)
     public String confirmDelete(@RequestParam("id") int id, Model model) {
-        Staff staff = staffDao.staffId(id);  // still need to load the object for display
+        Staff staff = staffDao.staffId(id); 
         model.addAttribute("staff", staff);
-        return "staff/delete";  // JSP asking "Are you sure?"
+        return "staff/delete";  // 
     }
  
-  
-    
-
+    //DELETE METHOD
     @RequestMapping(path = "deletestaff", method = RequestMethod.POST)
     public String deleteStaff(@RequestParam("id") int id, Model model) {
         boolean deleted = staffDao.delete(id);
-
-        model.addAttribute("message", deleted ? "Staff deleted successfully." : "Staff not found. Nothing deleted.");
         model.addAttribute("staff", staffDao.findAll());
-        model.addAttribute("showStaff", true);
+        model.addAttribute("showStaff", deleted);
         
         return "home";
     }
