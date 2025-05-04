@@ -19,8 +19,7 @@ public class StaffDaoImpl implements StaffDAO {
 	
 	@Override
 	public Staff staffId(int id) {
-		return em.find(Staff.class, id); 
-		
+		return em.find(Staff.class, id); 	
 	}
 
 	@Override
@@ -29,10 +28,44 @@ public class StaffDaoImpl implements StaffDAO {
 		return em.createQuery(jpql, Staff.class).getResultList();
 	}
 
-	@Override
-	public List<Staff> sortByName(String sort) {
-		String jpql = "SELECT s FROM Staff s ORDER BY s.first_name";
-		return em.createQuery(jpql, Staff.class).getResultList();
-	}
+	    @Override
+	    @Transactional
+	    public Staff create(Staff staff) {
+	        em.persist(staff);
+	        return staff;
+	    }
 
+	    @Override
+	    @Transactional
+	    public boolean delete(int id) {
+	        Staff staff = em.find(Staff.class, id);
+	        if (staff != null) {
+	            em.remove(staff);
+	            return true;
+	        }
+	        return false;
+	    }
+		
+	    @Override
+	    @Transactional
+	    public Staff update(Staff staff) {
+	        return em.merge(staff);
+	    }
+
+		@Override
+		public List<Staff> sortByTitle(String sort) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public List<Staff> sortById(String sort) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		@Override
+		public List<Staff> sortByName(String sort) {
+			String jpql = "SELECT s FROM Staff s ORDER BY s.first_name";
+			return em.createQuery(jpql, Staff.class).getResultList();
+		}
 }

@@ -18,6 +18,40 @@ public class StaffController {
 	@Autowired
 	private StaffDAO staffDao; 
 	
+	//CREATE
+	@RequestMapping(path = "staffform.do", method = RequestMethod.GET)
+    public String showCreateForm(Model model) {
+        model.addAttribute("staff", new Staff());
+        return "staff/staffform";  // JSP with input fields
+    }
+	
+	 // UPDATE FORM (pre-filled)
+	@RequestMapping(path = "editstaff.do", method = RequestMethod.GET)
+	public String editStaff(@RequestParam("id") int id, Model model) {
+	    Staff staff = staffDao.staffId(id);
+	    model.addAttribute("staff", staff);
+	    return "staff/editstaff";
+	}
+	@RequestMapping(path = "staff/update", method = RequestMethod.POST)
+	public String updateStaff(Staff staff) {
+	    staffDao.update(staff);
+	    return "redirect:/staff.do?staffId=" + staff.getId();
+	}
+    
+ // PROCESS FORM SUBMISSION (create or update)
+    @RequestMapping(path = "staffform.do", method = RequestMethod.POST)
+    public String handleFormSubmit(Staff staff, Model model) {
+        if (staff.getId() == 0) {
+            staffDao.create(staff); // New staff
+        } else {
+            staffDao.update(staff); // Existing staff
+        }
+        model.addAttribute("staff", staff);
+        return "redirect:/staff.do?staffId=" + staff.getId();// Redirect to detail page
+    }
+    
+    
+	//READ
 	@RequestMapping(path= {"/", "home.do"})
 	public String index(@RequestParam(value = "showStaff", required = false) Boolean showStaff, Model model) {
 	    List<Staff> staffList = staffDao.findAll();
@@ -25,7 +59,7 @@ public class StaffController {
 	    model.addAttribute("showStaff", showStaff);
 	    return "home";
 	}
-	
+	//READ
 	@RequestMapping(path = "staff.do", method = RequestMethod.GET)
 	public String lookupStaff(Model model, @RequestParam("staffId") int staffId) {
 		Staff staff = staffDao.staffId(staffId);
@@ -39,6 +73,7 @@ public class StaffController {
 		}
 	}
 	
+	//READ
 	public String staffList(Model model) {
 	List<Staff> staff = staffDao.findAll(); 
 	 model.addAttribute("staff", staff);
@@ -49,13 +84,14 @@ public class StaffController {
 	  return "home";
 	}
 	
-	@RequestMapping(path = "sortStaff.do", method = RequestMethod.GET)
-	public String staffSort(Model model, @RequestParam("sort") Boolean showStaff, String sort) {
-	    List<Staff> staff = staffDao.sortByName(sort);
-	    model.addAttribute("staff", staff);
-	    model.addAttribute("showStaff", showStaff);
-	    return "home";
-	}
+	 // SORT
+    @RequestMapping(path = "sortStaff.do", method = RequestMethod.GET)
+    public String staffSort(Model model, @RequestParam("sort") String sort) {
+        List<Staff> staff = staffDao.sortByName(sort);
+        model.addAttribute("staff", staff);
+        model.addAttribute("showStaff", true); // So table shows
+        return "home";
+    }
 	
 
 }
