@@ -198,11 +198,6 @@ Entities are stored and tested in the JPAMSFG.
 DAO, Controller and webfiles are in the MSFGStaff project. 
 Using the DalImlp for basic CRUD SQL commands and the condroller for functionality. 
 
-<img src="images/home.jpg" alt="home" width="200"/>
-<img src="images/staff.jpg" alt="staff" width="200"/>
-<img src="images/staffform.jpg" alt="staffform" width="200"/>
-<img src="images/delete.jpg" alt="delete" width="200"/>
-
 ### 3. Functionality
 
 	- hide/show button for table for Staff
@@ -214,9 +209,11 @@ Using the DalImlp for basic CRUD SQL commands and the condroller for functionali
 	- delete button goes to delete page which displays name
 	- delete button removes row
 
-<img src="images/item1.jpg" alt="item1" width="200"/>
-<img src="images/item2.jpg" alt="item2" width="200"/>
-<img src="images/item3.jpg" alt="item3" width="200"/>
+<img src="images/home.jpg" alt="home" width="300"/>
+<img src="images/staff.jpg" alt="staff" width="300"/>
+<img src="images/staffform.jpg" alt="staffform" width="300"/>
+<img src="images/delete.jpg" alt="delete" width="300"/>
+<img src="images/editstaff.jpg" alt="editstaff" width="300"/>
 
 ### 4. Testing & Debugging
 
@@ -233,6 +230,10 @@ Tested the entity int the JPA
 - jpql commands dont use get or set methods nor do they use the snake case from the SQL column
 - if you add a Boolean parameter is will default required to true and will through an exception unless you force it to false. 
 - important syntax for redictection. return "redirect:/staff.do?staffId=" + staff.getId();
+
+<img src="images/item1.jpg" alt="item1" width="200"/>
+<img src="images/item2.jpg" alt="item2" width="200"/>
+<img src="images/item3.jpg" alt="item3" width="200"/>
 
 ### Notes
 
