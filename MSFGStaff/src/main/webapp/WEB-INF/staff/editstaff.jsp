@@ -89,10 +89,8 @@
    			<a href="home.do" class="glow-btn no-underline">Home</a>
 		</div>
     </form>
-<div>
-<br>
-<br>
-    <br>
-  </div>
+
+
+<br><div class=spacing></div>
 </body>
 </html>

@@ -27,8 +27,8 @@
 		<div class="centered-form">
 			<form action="staff.do" method="GET" class="centered-form">
 				<label for="staffId">Staff ID:</label> <input type="text"
-					name="staffId" id="staffId" class="form-control" required /> <input
-					type="submit" class="glow-btn" value="Get Staff by ID" />
+					name="staffId" id="staffId" class="form-control spacing" required /> <input
+					type="submit" class="glow-btn spacing" value="Get Staff by ID" />
 			</form>
 		</div>
 
@@ -36,7 +36,7 @@
 		<div class="centered-form">
 			<form action="home.do" method="GET">
 				<input type="hidden" name="showStaff" value="${!showStaff}" /> <input
-					type="submit" class="glow-btn"
+					type="submit" class="glow-btn spacing"
 					value="${showStaff ? 'Hide Staff' : 'Show Staff'}" />
 			</form>
 		</div>

@@ -19,27 +19,26 @@
 <meta charset="UTF-8">
 <title>Staff Details</title>
 </head>
+
 <body>
-  <div class="container">
-    <br>
-    <form action="deletestaff" method="POST" class="centered-form">
+  <div class="spacing" style="text-align: center;">
+    <form action="deletestaff" method="POST">
       <input type="hidden" name="id" value="${staff.id}" />
 
       <h1><strong>ARE YOU SURE YOU WANT TO DELETE THIS STAFF MEMBER?</strong></h1>
       <h3><strong>This operation cannot be undone.</strong></h3>
 
-      <br>
+      <br><br>
 
-      <h1><strong style="color: red;">Name:</strong>
-        ${staff.firstName} ${staff.lastName}</h1>
+      <h2 style="color: red;">Name: ${staff.firstName} ${staff.lastName}</h2>
 
-      <br>
+      <br><br>
 
-   
-  <button type="submit" class="glow-btn delete">Delete</button>
-  <a href="home.do" class="glow-btn no-underline">Cancel</a>
-</form>
-    <br>
+      <div class="centered-form">
+        <button type="submit" class="glow-btn delete">Delete</button>
+        <a href="home.do" class="glow-btn no-underline">Cancel</a>
+      </div>
+    </form>
   </div>
 </body>
 </html>

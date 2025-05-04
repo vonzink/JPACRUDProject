@@ -197,7 +197,17 @@ The setup for this project is a JPA Project using Gradel connected to a Spring B
 Entities are stored and tested in the JPAMSFG. 
 DAO, Controller and webfiles are in the MSFGStaff project. 
 Using the DalImlp for basic CRUD SQL commands and the condroller for functionality. 
+
+<img src="images/home.jpg" alt="home" width="100"/>
+<img src="images/staff.jpg" alt="staff" width="100"/>
+<img src="images/staffform.jpg" alt="staffform" width="100"/>
+<img src="images/delete.jpg" alt="delete" width="100"/>
+
 ### 4. Implement the Backbone
+
+
+
+
 
 
 ### 8. Testing & Debugging
@@ -208,8 +218,9 @@ Using the DalImlp for basic CRUD SQL commands and the condroller for functionali
 - SQL command go in the StaffDaoImlp
 - Method need to be done in forms, 1 method per path. The .do notation is not required. 
 - date formating is an issue. 
-- jpql commands dont use get or set methods. 
-- 
+- jpql commands dont use get or set methods nor do they use the snake case from the SQL column
+- if you add a Boolean parameter is will default required to true and will through an exception unless you force it to false. 
+- important syntax for redictection. return "redirect:/staff.do?staffId=" + staff.getId();
 
 
 
