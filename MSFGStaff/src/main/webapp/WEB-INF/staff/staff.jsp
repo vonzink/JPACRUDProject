@@ -72,7 +72,7 @@
 
 		<div>
 			<a href="editstaff.do?id=${staff.id}" class="glow-btn no-underline">Edit</a>
-			<a href="home.do" class="glow-btn no-underline">Delete</a>
+			<a href="delete?id=${staff.id}" class="glow-btn delete no-underline">Delete</a>
 			<a href="home.do" class="glow-btn no-underline">Home</a>
 		</div>
 		<br>

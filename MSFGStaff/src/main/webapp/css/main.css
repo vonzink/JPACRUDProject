@@ -35,6 +35,10 @@ body{
 		  cursor: pointer;
 }
 
+.delete {
+	 background-color: #ff2600;
+}
+
 .glow-btn:hover {
 		  box-shadow: 0 0 12px #8cc63e, 0 0 24px #4b7b4d, 0 0 32px #104547;
 		  transform: scale(1.05);

@@ -17,41 +17,35 @@ public class StaffController {
 
 	@Autowired
 	private StaffDAO staffDao; 
-	
-	//CREATE
-	@RequestMapping(path = "staffform.do", method = RequestMethod.GET)
-    public String showCreateForm(Model model) {
-        model.addAttribute("staff", new Staff());
-        return "staff/staffform";  // JSP with input fields
-    }
-	
-	 // UPDATE FORM (pre-filled)
+
+	//SHOWS editstaff
 	@RequestMapping(path = "editstaff.do", method = RequestMethod.GET)
-	public String editStaff(@RequestParam("id") int id, Model model) {
-	    Staff staff = staffDao.staffId(id);
-	    model.addAttribute("staff", staff);
-	    return "staff/editstaff";
+	public String showEditStaff(@RequestParam("id") int id, Model model) {
+		Staff staff = staffDao.staffId(id);
+		model.addAttribute("staff", staff);
+		return "staff/editstaff";
 	}
+        
+    //EDITS STAFF
 	@RequestMapping(path = "staff/update", method = RequestMethod.POST)
 	public String updateStaff(Staff staff) {
-	    staffDao.update(staff);
-	    return "redirect:/staff.do?staffId=" + staff.getId();
+		staffDao.update(staff);
+		return "redirect:/staff.do?staffId=" + staff.getId();
+	    
+	    
+	} //SHOWS Staffform
+	@RequestMapping(path = "staffform", method = RequestMethod.GET)
+	public String showStaffForm(Model model) {
+	    model.addAttribute("staff", new Staff());
+	    return "staff/staffform";
+	}//CREATES STAFF
+	@RequestMapping(path = "staffcreate", method = RequestMethod.POST)
+	public String newStaff(Staff staff, Model model) {
+	    staffDao.create(staff);
+	    return "redirect:staff.do?staffId=" + staff.getId();
 	}
     
- // PROCESS FORM SUBMISSION (create or update)
-    @RequestMapping(path = "staffform.do", method = RequestMethod.POST)
-    public String handleFormSubmit(Staff staff, Model model) {
-        if (staff.getId() == 0) {
-            staffDao.create(staff); // New staff
-        } else {
-            staffDao.update(staff); // Existing staff
-        }
-        model.addAttribute("staff", staff);
-        return "redirect:/staff.do?staffId=" + staff.getId();// Redirect to detail page
-    }
-    
-    
-	//READ
+	//SHOWS HOME with DB list
 	@RequestMapping(path= {"/", "home.do"})
 	public String index(@RequestParam(value = "showStaff", required = false) Boolean showStaff, Model model) {
 	    List<Staff> staffList = staffDao.findAll();
@@ -59,7 +53,7 @@ public class StaffController {
 	    model.addAttribute("showStaff", showStaff);
 	    return "home";
 	}
-	//READ
+	//SHOWS staff by id on staff.do
 	@RequestMapping(path = "staff.do", method = RequestMethod.GET)
 	public String lookupStaff(Model model, @RequestParam("staffId") int staffId) {
 		Staff staff = staffDao.staffId(staffId);
@@ -73,25 +67,49 @@ public class StaffController {
 		}
 	}
 	
-	//READ
-	public String staffList(Model model) {
-	List<Staff> staff = staffDao.findAll(); 
-	 model.addAttribute("staff", staff);
-	 model.addAttribute("message", staff.isEmpty() 
-	      ? "No films found." 
-	      : "Found " + staff.size() + " films.");
-	  
-	  return "home";
-	}
-	
-	 // SORT
-    @RequestMapping(path = "sortStaff.do", method = RequestMethod.GET)
+	 // SORT NAME
+    @RequestMapping(path = "sortStaff", method = RequestMethod.GET)
     public String staffSort(Model model, @RequestParam("sort") String sort) {
         List<Staff> staff = staffDao.sortByName(sort);
         model.addAttribute("staff", staff);
         model.addAttribute("showStaff", true); // So table shows
         return "home";
     }
+    // SORT ID
+    @RequestMapping(path = "sortStaffId", method = RequestMethod.GET)
+    public String staffSortId(Model model, @RequestParam("sort") String sort) {
+        List<Staff> staff = staffDao.sortById(sort);
+        model.addAttribute("staff", staff);
+        model.addAttribute("showStaff", true);
+        return "home";
+    }
+    // SORT TITLE
+    @RequestMapping(path = "sortStaffTitle", method = RequestMethod.GET)
+    public String staffSortTitle(Model model, @RequestParam("sort") String sort) {
+        List<Staff> staff = staffDao.sortByTitle(sort);
+        model.addAttribute("staff", staff);
+        model.addAttribute("showStaff", true);
+        return "home";
+    }
 	
+    @RequestMapping(path = "delete", method = RequestMethod.GET)
+    public String confirmDelete(@RequestParam("id") int id, Model model) {
+        Staff staff = staffDao.staffId(id);  // still need to load the object for display
+        model.addAttribute("staff", staff);
+        return "staff/delete";  // JSP asking "Are you sure?"
+    }
+ 
+  
+    
 
+    @RequestMapping(path = "deletestaff", method = RequestMethod.POST)
+    public String deleteStaff(@RequestParam("id") int id, Model model) {
+        boolean deleted = staffDao.delete(id);
+
+        model.addAttribute("message", deleted ? "Staff deleted successfully." : "Staff not found. Nothing deleted.");
+        model.addAttribute("staff", staffDao.findAll());
+        model.addAttribute("showStaff", true);
+        
+        return "home";
+    }
 }

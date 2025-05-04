@@ -46,10 +46,17 @@
 				<thead class="table-dark">
 					<tr>
 						<th style="background-color: DarkGreen;"><a
-							href="home.do?sort=name&showStaff=true"
-							class="underline text-white"> Name</a></th>
-						<th style="background-color: DarkGreen;">Title</th>
-						<th style="background-color: DarkGreen;">ID</th>
+							href="sortStaff?sort=name&showStaff=true"
+							class="underline text-white"> 
+							Name</a></th>
+						<th style="background-color: DarkGreen;">
+						<a href="sortStaffTitle?sort=name&showStaff=true"
+							class="underline text-white">
+							Title</a></th>
+						<th style="background-color: DarkGreen;">
+						<a href="sortStaffId?sort=name&showStaff=true" 
+						class="underline text-white">
+						ID</a></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -68,7 +75,7 @@
 				</tbody>
 			</table>
 			<div class="centered-form">
-				<a href="staffform.do" class="glow-btn no-underline">Add</a>
+				<a href="staffform" class="glow-btn no-underline">Add</a>
 			</div>
 		</c:if>
 

@@ -22,7 +22,7 @@
 <body>
   <div class="container">
     <br>
-    <form action="staff/update" method="post">
+    <form action="staffcreate" method="POST">
       <table class="table table-striped table-hover outer-table">
         <tr>
           <td colspan="2" class="text-center">
@@ -80,11 +80,13 @@
         
       </table>
 
+       		<button type="submit" class="glow-btn no-underline">Submit New</button>
     </form>
+    <br>
+    <br>
+    
 <div>
 		<div>
-       		<a href="staffform.do" class="glow-btn no-underline">Add</a>
-			<a href="submit" class="glow-btn no-underline">Delete</a>
       		<a href="home.do" class="glow-btn no-underline">Cancel</a>
    			<a href="home.do" class="glow-btn no-underline">Home</a>
 		</div>

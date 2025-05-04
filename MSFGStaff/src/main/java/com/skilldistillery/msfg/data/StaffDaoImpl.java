@@ -28,12 +28,13 @@ public class StaffDaoImpl implements StaffDAO {
 		return em.createQuery(jpql, Staff.class).getResultList();
 	}
 
-	    @Override
-	    @Transactional
-	    public Staff create(Staff staff) {
-	        em.persist(staff);
-	        return staff;
-	    }
+	@Override
+	@Transactional
+	public Staff create(Staff staff) {
+	    em.persist(staff);
+	    em.flush();
+	    return staff;
+	}
 
 	    @Override
 	    @Transactional
@@ -51,21 +52,19 @@ public class StaffDaoImpl implements StaffDAO {
 	    public Staff update(Staff staff) {
 	        return em.merge(staff);
 	    }
-
 		@Override
 		public List<Staff> sortByTitle(String sort) {
-			// TODO Auto-generated method stub
-			return null;
+			String jpql = "SELECT s FROM Staff s ORDER BY s.jobTitle";
+			return em.createQuery(jpql, Staff.class).getResultList();
 		}
-
 		@Override
 		public List<Staff> sortById(String sort) {
-			// TODO Auto-generated method stub
-			return null;
+			String jpql = "SELECT s FROM Staff s ORDER BY s.id";
+			return em.createQuery(jpql, Staff.class).getResultList();
 		}
 		@Override
 		public List<Staff> sortByName(String sort) {
-			String jpql = "SELECT s FROM Staff s ORDER BY s.first_name";
+			String jpql = "SELECT s FROM Staff s ORDER BY s.lastName";
 			return em.createQuery(jpql, Staff.class).getResultList();
 		}
 }

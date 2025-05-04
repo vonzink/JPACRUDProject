@@ -80,15 +80,18 @@
 
   			<button type="submit" class="glow-btn">Submit Changes</button>
   			<br>
+  			<br>
+  			<br>
+  			
+		<div>
+			<a href="delete?id=${staff.id}" class="glow-btn delete no-underline">Delete</a>
+      		<a href="home.do" class="glow-btn no-underline">Cancel</a>
+   			<a href="home.do" class="glow-btn no-underline">Home</a>
+		</div>
     </form>
 <div>
 <br>
 <br>
-		<div>
-			<a href="submit" class="glow-btn no-underline">Delete</a>
-      		<a href="home.do" class="glow-btn no-underline">Cancel</a>
-   			<a href="home.do" class="glow-btn no-underline">Home</a>
-		</div>
     <br>
   </div>
 </body>
