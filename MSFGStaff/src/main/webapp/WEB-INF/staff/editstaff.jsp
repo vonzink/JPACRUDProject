@@ -22,7 +22,7 @@
 <body>
 	<div class="container">
 		<br>
-		<form action="staff/update" method="POST">
+		<form action="staffupdate" method="POST">
 			<input type="hidden" name="id" value="${staff.id}" />
 			<table class="table table-striped table-hover outer-table">
 				<tr>

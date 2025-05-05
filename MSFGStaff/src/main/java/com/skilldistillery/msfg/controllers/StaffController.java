@@ -27,7 +27,7 @@ public class StaffController {
 	}
         
     //EDITS STAFF
-	@RequestMapping(path = "staff/update", method = RequestMethod.POST)
+	@RequestMapping(path = "staffupdate", method = RequestMethod.POST)
 	public String updateStaff(Staff staff) {
 		staffDao.update(staff);
 		return "redirect:/staff.do?staffId=" + staff.getId();
