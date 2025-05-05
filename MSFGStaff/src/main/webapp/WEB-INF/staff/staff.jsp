@@ -32,7 +32,7 @@
 			</tr>
 			<tr>
 				<td></h1> <strong style="color: MediumSeaGreen;">Name:</strong></td>
-				<td>${staff.firstName }${staff.lastName }</td>
+				<td>${staff.firstName } ${staff.lastName }</td>
 			</tr>
 			<tr>
 				<td><strong style="color: MediumSeaGreen;">Title:</strong></td>
