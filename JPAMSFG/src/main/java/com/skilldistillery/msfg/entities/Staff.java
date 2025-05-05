@@ -35,6 +35,7 @@ public class Staff {
 	@Column(name="employment_type")
 	private String employmentType; 
 	private String nmls;
+	private String headshot; 
 	
 	//constructor
 	
@@ -139,9 +140,22 @@ public class Staff {
 		this.nmls = nmls;
 	}
 
+	
 
 	 //toString
 	
+	public String getHeadshot() {
+		return headshot;
+	}
+
+	public void setHeadshot(String headshot) {
+		this.headshot = headshot;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
 	@Override
 	public String toString() {
 		return "Staff [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", birthDate="

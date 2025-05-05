@@ -20,78 +20,90 @@
 <title>Staff Details</title>
 </head>
 <body>
-  <div class="container">
-    <br>
-    <form action="staffcreate" method="POST">
-      <table class="table table-striped table-hover outer-table">
-        <tr>
-          <td colspan="2" class="text-center">
-            <h1>Mountain State Financial Group</h1>
-            <h4>Add Staff</h4>
-          </td>
-        </tr>
+	<div class="container">
+		<br>
+		<form action="staffcreate" method="POST">
+			<table class="table table-striped table-hover outer-table">
+				<tr>
+					<td colspan="2" class="text-center">
+						<h1>Mountain State Financial Group</h1>
+						<h4>Add Staff</h4>
+					</td>
+				</tr>
 
-        <input type="hidden" name="id" value="${staff.id}" />
+				<input type="hidden" name="id" value="${staff.id}" />
 
-        <tr>
-          <td><strong style="color: MediumSeaGreen;">First Name:</strong></td>
-          <td>
-            <input type="text" name="firstName" value="${staff.firstName}" required />
-          </td>
-        </tr>
-        <tr>
-          <td><strong style="color: MediumSeaGreen;">Last Name:</strong></td>
-          <td><input type="text" name="lastName" value="${staff.lastName}" required />
-          </td>
-        </tr>
-        <tr>
-          <td><strong style="color: MediumSeaGreen;">Title:</strong></td>
-          <td><input type="text" name="jobTitle" value="${staff.jobTitle}" /></td>
-        </tr>
-        <tr>
-          <td><strong style="color: MediumSeaGreen;">DOB:</strong></td>
-          <td><input type="date" name="birthDate" value="${staff.birthDate}" /></td>
-        </tr>
-        <tr>
-          <td><strong style="color: MediumSeaGreen;">Email:</strong></td>
-          <td><input type="email" name="email" value="${staff.email}" /></td>
-        </tr>
-        <tr>
-          <td><strong style="color: MediumSeaGreen;">Phone:</strong></td>
-          <td><input type="text" name="phone" value="${staff.phone}" /></td>
-        </tr>
-        <tr>
-          <td><strong style="color: MediumSeaGreen;">Employment Type:</strong></td>
-          <td><input type="text" name="employmentType" value="${staff.employmentType}" /></td>
-        </tr>
-        <tr>
-          <td><strong style="color: MediumSeaGreen;">NMLS:</strong></td>
-          <td><input type="text" name="nmls" value="${staff.nmls}" /></td>
-        </tr>
-        <tr>
-          <td><strong style="color: MediumSeaGreen;">Start Date:</strong></td>
-          <td><input type="date" name="startDate" value="${staff.startDate}" /></td>
-        </tr>
-        <tr>
-          <td><strong style="color: MediumSeaGreen;">End Date:</strong></td>
-          <td><input type="date" name="endDate" value="${staff.endDate}" /></td>
-        </tr>
-        <br>
-        
-      </table>
+				<tr>
+					<td><strong style="color: MediumSeaGreen;">First
+							Name:</strong></td>
+					<td><input type="text" name="firstName"
+						value="${staff.firstName}" required /></td>
+				</tr>
+				<tr>
+					<td><strong style="color: MediumSeaGreen;">Last Name:</strong></td>
+					<td><input type="text" name="lastName"
+						value="${staff.lastName}" required /></td>
+				</tr>
+				<tr>
+					<td><strong style="color: MediumSeaGreen;">Title:</strong></td>
+					<td><input type="text" name="jobTitle"
+						value="${staff.jobTitle}" /></td>
+				</tr>
+				<tr>
+					<td><strong style="color: MediumSeaGreen;">DOB:</strong></td>
+					<td><input type="date" name="birthDate"
+						value="${staff.birthDate}" /></td>
+				</tr>
+				<tr>
+					<td><strong style="color: MediumSeaGreen;">Email:</strong></td>
+					<td><input type="email" name="email" value="${staff.email}" /></td>
+				</tr>
+				<tr>
+					<td><strong style="color: MediumSeaGreen;">Phone:</strong></td>
+					<td><input type="text" name="phone" value="${staff.phone}" /></td>
+				</tr>
+				<tr>
+					<td><strong style="color: MediumSeaGreen;">Employment
+							Type:</strong></td>
+					<td><input type="text" name="employmentType"
+						value="${staff.employmentType}" /></td>
+				</tr>
+				<tr>
+					<td><strong style="color: MediumSeaGreen;">NMLS:</strong></td>
+					<td><input type="text" name="nmls" value="${staff.nmls}" /></td>
+				</tr>
+				<tr>
+					<td><strong style="color: MediumSeaGreen;">Start
+							Date:</strong></td>
+					<td><input type="date" name="startDate"
+						value="${staff.startDate}" /></td>
+				</tr>
+				<tr>
+					<td><strong style="color: MediumSeaGreen;">End Date:</strong></td>
+					<td><input type="date" name="endDate" value="${staff.endDate}" /></td>
+				</tr>
+				<tr>
+					<td><strong style="color: MediumSeaGreen;">Headshot:</strong></td>
+					<td><input type="text" name="headshot"
+						value="${staff.headshot}"> <img
+						src="${pageContext.request.contextPath}/documents/${staff.headshot}"
+						style="height: 100px;"></td>
+				</tr>
+				<br>
+			</table>
 
-       		<button type="submit" class="glow-btn no-underline">Submit New</button>
-    </form>
-    <br>
-    <br>
-    
-<div>
+			<button type="submit" class="glow-btn no-underline">Submit
+				New</button>
+		</form>
+		<br> <br>
+
 		<div>
-      		<a href="home.do" class="glow-btn no-underline">Cancel</a>
-   			<a href="home.do" class="glow-btn no-underline">Home</a>
+			<div>
+				<a href="home.do" class="glow-btn no-underline">Cancel</a> <a
+					href="home.do" class="glow-btn no-underline">Home</a>
+			</div>
+
+			<br>
 		</div>
-	
-    <br>
-  </div>
 </body>
 </html>

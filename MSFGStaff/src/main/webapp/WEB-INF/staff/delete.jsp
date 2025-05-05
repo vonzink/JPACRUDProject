@@ -21,27 +21,33 @@
 </head>
 
 <body>
-  <div class="spacing" style="text-align: center;">
-    <form action="deletestaff" method="POST">
-      <input type="hidden" name="id" value="${staff.id}" />
+	<div class="spacing" style="text-align: center;">
+		<form action="deletestaff" method="POST">
+			<input type="hidden" name="id" value="${staff.id}" />
 
-<div class="alert alert-warning" role="alert">
-  ⚠️ This is a warning — proceed with caution!
-</div>
-      <h1><strong>ARE YOU SURE YOU WANT TO DELETE THIS STAFF MEMBER?</strong></h1>
-      <h3><strong>This operation cannot be undone.</strong></h3>
+			<div class="alert alert-warning" role="alert">⚠️ This is a
+				warning — proceed with caution!</div>
+			<h1>
+				<strong>ARE YOU SURE YOU WANT TO DELETE THIS STAFF MEMBER?</strong>
+			</h1>
+			<h3>
+				<strong>This operation cannot be undone.</strong>
+			</h3>
 
-      <br><br>
+			<br>
+			<br>
 
-      <h2 style="color: red;">Name: ${staff.firstName} ${staff.lastName}</h2>
+			<h2 style="color: red;">Name: ${staff.firstName}
+				${staff.lastName}</h2>
 
-      <br><br>
+			<br>
+			<br>
 
-      <div class="centered-form">
-        <button type="submit" class="glow-btn delete">Delete</button>
-        <a href="home.do" class="glow-btn no-underline">Cancel</a>
-      </div>
-    </form>
-  </div>
+			<div class="centered-form">
+				<button type="submit" class="glow-btn delete">Delete</button>
+				<a href="home.do" class="glow-btn no-underline">Cancel</a>
+			</div>
+		</form>
+	</div>
 </body>
 </html>

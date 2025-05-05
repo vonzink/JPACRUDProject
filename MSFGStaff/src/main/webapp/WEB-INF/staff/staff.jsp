@@ -31,9 +31,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td></h1>
-					<strong style="color: MediumSeaGreen;">Name:</strong></td>
-				<td>${staff.firstName } ${staff.lastName }</td>
+				<td></h1> <strong style="color: MediumSeaGreen;">Name:</strong></td>
+				<td>${staff.firstName }${staff.lastName }</td>
 			</tr>
 			<tr>
 				<td><strong style="color: MediumSeaGreen;">Title:</strong></td>
@@ -68,11 +67,20 @@
 				<td><strong style="color: MediumSeaGreen;">End Date:</strong></td>
 				<td>${staff.endDate}</td>
 			</tr>
+			<tr>
+			<tr>
+				<td><strong style="color: MediumSeaGreen;">Headshot:</strong></td>
+				<td><img
+					src="${pageContext.request.contextPath}/documents/${staff.headshot}"
+					style="height: 100px;"></td>
+			</tr>
+			</tr>
+
 		</table>
 
 		<div>
-			<a href="staffform" class="glow-btn no-underline">Add</a>
-			<a href="editstaff.do?id=${staff.id}" class="glow-btn no-underline">Edit</a>
+			<a href="staffform" class="glow-btn no-underline">Add</a> <a
+				href="editstaff.do?id=${staff.id}" class="glow-btn no-underline">Edit</a>
 			<a href="delete?id=${staff.id}" class="glow-btn delete no-underline">Delete</a>
 			<a href="home.do" class="glow-btn no-underline">Home</a>
 		</div>

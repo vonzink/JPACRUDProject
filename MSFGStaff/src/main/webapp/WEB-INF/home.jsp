@@ -27,8 +27,9 @@
 		<div class="centered-form">
 			<form action="staff.do" method="GET" class="centered-form">
 				<label for="staffId">Staff ID:</label> <input type="text"
-					name="staffId" id="staffId" class="form-control spacing" required /> <input
-					type="submit" class="glow-btn spacing" value="Get Staff by ID" />
+					name="staffId" id="staffId" class="form-control spacing" required />
+				<input type="submit" class="glow-btn spacing"
+					value="Get Staff by ID" />
 			</form>
 		</div>
 
@@ -47,16 +48,13 @@
 					<tr>
 						<th style="background-color: DarkGreen;"><a
 							href="sortStaff?sort=name&showStaff=true"
-							class="underline text-white"> 
-							Name</a></th>
-						<th style="background-color: DarkGreen;">
-						<a href="sortStaffTitle?sort=name&showStaff=true"
-							class="underline text-white">
-							Title</a></th>
-						<th style="background-color: DarkGreen;">
-						<a href="sortStaffId?sort=name&showStaff=true" 
-						class="underline text-white">
-						ID</a></th>
+							class="underline text-white"> Name</a></th>
+						<th style="background-color: DarkGreen;"><a
+							href="sortStaffTitle?sort=name&showStaff=true"
+							class="underline text-white"> Title</a></th>
+						<th style="background-color: DarkGreen;"><a
+							href="sortStaffId?sort=name&showStaff=true"
+							class="underline text-white"> ID</a></th>
 					</tr>
 				</thead>
 				<tbody>
